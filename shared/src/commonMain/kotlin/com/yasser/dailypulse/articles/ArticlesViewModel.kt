@@ -18,7 +18,7 @@ class ArticlesViewModel : BaseViewModel() {
     private fun getArticles() {
         scope.launch {
             _articlesState.update { it.copy(isLoading = true) }
-            delay(500)
+            delay(1000)
            _articlesState.update { it.copy(articles = mockArticles, isLoading = false) }
         }
     }
