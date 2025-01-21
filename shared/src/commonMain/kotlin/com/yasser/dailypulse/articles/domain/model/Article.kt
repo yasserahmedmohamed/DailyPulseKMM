@@ -1,4 +1,4 @@
-package com.yasser.dailypulse.articles
+package com.yasser.dailypulse.articles.domain.model
 
 data class Article(
     val title: String,

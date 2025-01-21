@@ -9,10 +9,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yasser.dailypulse.Platform
-import com.yasser.dailypulse.android.articlesList.ArticlesScreen
-import com.yasser.dailypulse.articles.ArticlesViewModel
+import com.yasser.dailypulse.articles.presentation.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,6 +1,6 @@
 package com.yasser.dailypulse.android.articlesList
 
-import com.yasser.dailypulse.articles.ArticlesViewModel
+import com.yasser.dailypulse.articles.presentation.ArticlesViewModel
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,7 +21,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
-import com.yasser.dailypulse.articles.Article
+import com.yasser.dailypulse.articles.domain.model.Article
 
 @Composable
 fun ArticlesScreen(

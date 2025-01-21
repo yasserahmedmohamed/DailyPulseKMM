@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.yasser.dailypulse.android.articlesList.ArticlesScreen
-import com.yasser.dailypulse.articles.ArticlesViewModel
+import com.yasser.dailypulse.articles.presentation.ArticlesViewModel
 
 @Composable
 fun AppScaffold(articlesViewModel: ArticlesViewModel) {
