@@ -22,8 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   val articlesViewModel: ArticlesViewModel by viewModels()
-                    AppScaffold(articlesViewModel)
+                    AppScaffold()
                 }
             }
         }

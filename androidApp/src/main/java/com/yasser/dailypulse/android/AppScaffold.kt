@@ -14,7 +14,7 @@ import com.yasser.dailypulse.android.articlesList.ArticlesScreen
 import com.yasser.dailypulse.articles.presentation.ArticlesViewModel
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
@@ -23,7 +23,6 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it),
-            articlesViewModel
         )
     }
 }
@@ -32,7 +31,6 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articlesViewModel: ArticlesViewModel
 ) {
     NavHost(
         navController = navController,
@@ -42,7 +40,6 @@ fun AppNavHost(
         composable(Screens.ARTICLES.route) {
             ArticlesScreen(
                 onAboutButtonClick = { navController.navigate(Screens.ABOUT.route) },
-                articlesViewModel,
             )
         }
 

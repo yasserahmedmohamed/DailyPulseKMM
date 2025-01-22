@@ -32,11 +32,12 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.yasser.dailypulse.articles.domain.model.Article
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel,
+    articlesViewModel: ArticlesViewModel = koinViewModel(),
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsStateWithLifecycle()
 
