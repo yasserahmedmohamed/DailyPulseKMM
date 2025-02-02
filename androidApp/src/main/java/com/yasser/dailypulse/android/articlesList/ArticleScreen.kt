@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import com.yasser.dailypulse.articles.domain.model.Article
 import org.koin.androidx.compose.koinViewModel
 
@@ -43,14 +45,22 @@ fun ArticlesScreen(
 
     Column {
         AppBar(onAboutButtonClick)
-
-
-        if (articlesState.value.isLoading)
-            Loader()
-        if (articlesState.value.error != null)
-            ErrorMessage(articlesState.value.error!!)
-        if (articlesState.value.articles.isNotEmpty())
-            ArticlesListView(articlesViewModel.articlesState.value.articles)
+        Box(
+            modifier= Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            if (articlesState.value.isLoading)
+                Loader()
+            if (articlesState.value.error != null)
+                ErrorMessage(articlesState.value.error!!)
+            if (articlesState.value.articles.isNotEmpty()){
+                SwipeRefresh(state = SwipeRefreshState(articlesViewModel.articlesState.value.isLoading), onRefresh = {
+                    articlesViewModel.getArticles(true)
+                }) {
+                    ArticlesListView(articlesViewModel.articlesState.value.articles)
+                }
+            }
+        }
     }
 }
 
@@ -114,8 +124,8 @@ fun ArticleItemView(article: Article) {
 @Composable
 fun Loader() {
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier = Modifier,
+        contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator(
             modifier = Modifier.width(64.dp),

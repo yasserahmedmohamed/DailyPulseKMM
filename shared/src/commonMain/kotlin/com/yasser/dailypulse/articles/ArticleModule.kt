@@ -1,5 +1,7 @@
 package com.yasser.dailypulse.articles
 
+import com.yasser.dailypulse.articles.data.ArticlesDataSource
+import com.yasser.dailypulse.articles.data.ArticlesRepository
 import com.yasser.dailypulse.articles.data.remote.ArticleService
 import com.yasser.dailypulse.articles.domain.usecase.GetArticlesUseCase
 import com.yasser.dailypulse.articles.presentation.ArticlesViewModel
@@ -13,6 +15,8 @@ val articlesModule = module {
     single { ArticleService(get()) }
     single { GetArticlesUseCase(get()) }
     single { ArticlesViewModel(get()) }
+    single { ArticlesDataSource(get()) }
+    single { ArticlesRepository(get(),get()) }
     single<HttpClient> {
        HttpClient{
             install(ContentNegotiation){

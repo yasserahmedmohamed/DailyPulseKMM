@@ -24,10 +24,10 @@ class ArticlesViewModel(
         getArticles()
     }
 
-    private fun getArticles() {
+    fun getArticles(isRefresh:Boolean = false) {
         scope.launch {
             _articlesState.update { it.copy(isLoading = true) }
-            val articles = articlesUseCase.getArticles()
+            val articles = articlesUseCase.getArticles(isRefresh)
             _articlesState.update { it.copy(articles = articles, isLoading = false) }
         }
     }
